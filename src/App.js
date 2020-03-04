@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux";
 import logo from "./logo.svg";
 import "./App.css";
 
-import { fetchPokemons } from "./redux/actions/pokemon";
+import { startGetPokemons } from "./redux/actions/pokemon";
 
 function App() {
   const dispatch = useDispatch();
@@ -11,7 +11,7 @@ function App() {
 
   useEffect(() => {
     if (pokemons.length === 0) {
-      dispatch(fetchPokemons());
+      dispatch(startGetPokemons());
       setPokemons([{}, {}]);
     }
   }, []);

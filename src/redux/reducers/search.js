@@ -14,7 +14,6 @@ export default function(state = initialState, action) {
       };
 
     case SUCCESS_GET_POKEMONS:
-      console.log(action.results);
       return {
         ...state,
         pokemons: action.results,
