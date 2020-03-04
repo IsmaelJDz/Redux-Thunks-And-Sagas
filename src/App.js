@@ -1,8 +1,21 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { useState, useEffect } from "react";
+import { useDispatch } from "react-redux";
+import logo from "./logo.svg";
+import "./App.css";
+
+import { fetchPokemons } from "./redux/actions/pokemon";
 
 function App() {
+  const dispatch = useDispatch();
+  const [pokemons, setPokemons] = useState([]);
+
+  useEffect(() => {
+    if (pokemons.length === 0) {
+      dispatch(fetchPokemons());
+      setPokemons([{}, {}]);
+    }
+  }, []);
+
   return (
     <div className="App">
       <header className="App-header">
